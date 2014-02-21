@@ -1,6 +1,5 @@
 package coupling.dynamic.original;
 
-import coupling.common.BookingException;
 import coupling.common.BookingResult;
 import coupling.dynamic.common.BookingService;
 import coupling.dynamic.common.ConferencingServer;
@@ -12,9 +11,9 @@ import java.util.List;
 
 import static java.util.Arrays.asList;
 
-public class Original {
+public class Usage {
 
-  public void usage() throws BookingException {
+  public static void main(String[] args) throws Exception {
     // sample setup
     ConferencingServer conferencingServer = new ConferencingServerImpl();
     MeetingCalendar meetingCalendar = new MeetingCalendarImpl();

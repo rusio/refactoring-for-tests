@@ -12,9 +12,9 @@ import coupling.dynamic.common.ConferencingServerImpl;
 import coupling.dynamic.common.MeetingCalendar;
 import coupling.dynamic.common.MeetingCalendarImpl;
 
-public class Refactored {
+public class Usage {
 
-  public void usage() throws BookingException {
+  public static void main(String[] args) throws Exception {
     // sample setup
     ConferencingServer conferencingServer = new ConferencingServerImpl();
     MeetingCalendar meetingCalendar = new MeetingCalendarImpl();

@@ -1,13 +1,11 @@
-package coupling.static2.original;
+package coupling.static2.refactored1;
 
-import coupling.common.BookingException;
+public class Usage {
 
-public class Original {
-
-  public void usage() throws BookingException {
+  public static void main(String[] args) throws Exception {
     // NOTE: the real implementation would create
     // these objects at a central place.
-    BigFatContext bigFatContext = new BigFatContext();
+    BigFatContext bigFatContext = new BigFatContextImpl();
     BookingService bookingService = new BookingService(bigFatContext);
     bookingService.bookConference("Big Trouble in Little China");
   }
