@@ -29,22 +29,38 @@ public class FtpClient {
                                    .build();
   }
 
-  public List<String> listFiles(String pattern) throws IOException {
+  public List<String> listFiles(String namePattern) throws IOException {
     try {
-      return cachedLists.get(pattern, new Callable<List<String>>() {
+      return cachedLists.get(namePattern, new Callable<List<String>>() {
         @Override
         public List<String> call() throws Exception {
           establishConnection(RECONNECT_RETRIES);
           // NOTE: imagine this lists the remote FTP files
           // according to the given filename pattern
-          List<String> remoteFiles = asList("conference-0.rec",
-                                            "conference-1.rec");
-          return remoteFiles;
+          return asList("conference-0.rec", "conference-1.rec");
         }
       });
     }
     catch (ExecutionException e) {
       throw new IOException(e);
+    }
+  }
+
+  private void establishConnection(int retriesLeft) throws IOException {
+    try {
+      // NOTE: simulate some connection problems
+      System.out.println("Connecting to " + serverUrl);
+      if (Math.random() < 0.2) {
+        throw new IOException("Connection refused!");
+      }
+    }
+    catch (IOException e) {
+      if (retriesLeft > 0) {
+        establishConnection(retriesLeft - 1);
+      }
+      else {
+        throw new IOException("Failed to establish connection.", e);
+      }
     }
   }
 
@@ -63,24 +79,6 @@ public class FtpClient {
     HashCode actualHashCode = hashFunction.hashBytes(fileBytes);
     if (!actualHashCode.equals(expectedHashCode)) {
       throw new IOException("Bad checksum after download!");
-    }
-  }
-
-  private void establishConnection(int retriesLeft) throws IOException {
-    try {
-      // NOTE: simulate some connection problems
-      System.out.println("Connecting to " + serverUrl);
-      if (Math.random() < 0.2) {
-        throw new IOException("Connection refused!");
-      }
-    }
-    catch (IOException e) {
-      if (retriesLeft > 0) {
-        establishConnection(retriesLeft - 1);
-      }
-      else {
-        throw new IOException("Failed after " + RECONNECT_RETRIES + " retries", e);
-      }
     }
   }
 

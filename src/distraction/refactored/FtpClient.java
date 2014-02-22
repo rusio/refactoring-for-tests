@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface FtpClient {
 
-  List<String> listFiles(String pattern) throws IOException;
+  List<String> listFiles(String namePattern) throws IOException;
 
   File downloadFile(String fileName, String checksum) throws IOException;
 

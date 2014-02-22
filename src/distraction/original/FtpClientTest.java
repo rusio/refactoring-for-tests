@@ -1,21 +1,36 @@
 package distraction.original;
 
+import org.junit.Test;
+
 public class FtpClientTest {
 
-  // CHALLENGE: write a test that tests the core responsibilities
-  // - list files
-  // - download files
+  @Test
+  public void testCoreFunctionality() throws Exception {
+    // CHALLENGE: write a test for one of the core responsibilities
+    // - list files
+    // - download files
+  }
 
-  // CHALLENGE: write a test that checks the caching aspect
-  // in combination with the core responsibilities
+  @Test
+  public void testCachingLogic() throws Exception {
+    // CHALLENGE: write a test that checks the caching aspect
+  }
 
-  // CHALLENGE: write a test that checks the retrying aspect
-  // in combination with the core responsibilities
+  @Test
+  public void testRetryingLogic() throws Exception {
+    // CHALLENGE: write a test that checks the retrying aspect
+  }
 
-  // CHALLENGE: write a test that checks both the caching and
-  // retrying aspects together with the core responsibilities
+  @Test
+  public void testCombinationOfFeatures() throws Exception {
+    // CHALLENGE: write a test that checks both the caching and
+    // retrying aspects together with the core responsibilities
+  }
 
-  // CHALLENGE: write tests that checks various error conditions
-  // in a scenario where all aspects are combined
+  @Test
+  public void testErrorHandling() throws Exception {
+    // CHALLENGE: write tests that checks various error conditions
+    // in a scenario where all aspects are combined
+  }
 
 }

@@ -11,6 +11,8 @@ public class ConferencingServerImpl implements ConferencingServer {
   public BookingResult bookConference(String topic, Date startDate) throws BookingException {
     // NOTE: the real implementation would connect to
     // the conferencing conferencingServer and book the conference
+    System.out.println("TOPIC: " + topic + " START: " + startDate);
+
     return BookingResult.forSuccess("0721/480848-000", startDate);
   }
 }

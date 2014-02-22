@@ -10,6 +10,7 @@ public class Usage {
     List<String> fileNames = ftpClient.listFiles("*.rec");
     for (String fileName : fileNames) {
       File localFile = ftpClient.downloadFile(fileName, "Bx3A2v34fhq4367");
+      System.out.println("FILE: " + localFile);
     }
   }
 }

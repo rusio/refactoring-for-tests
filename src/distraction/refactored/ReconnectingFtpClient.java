@@ -15,16 +15,16 @@ public class ReconnectingFtpClient implements FtpClient {
 
   @Override
   public List<String> listFiles(String pattern) throws IOException {
-    IOException cause = null;
+    IOException lastCause = null;
     for (int i = 0; i <= RETRY_COUNT; i++) {
       try {
         return delegate.listFiles(pattern);
       }
       catch (IOException e) {
-        cause = e;
+        lastCause = e;
       }
     }
-    throw new IOException("Failed after " + RETRY_COUNT + " retries!", cause);
+    throw new IOException("Failed to establish connection.", lastCause);
   }
 
   @Override

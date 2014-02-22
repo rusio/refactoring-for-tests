@@ -1,10 +1,10 @@
 package distraction.refactored;
 
+import static java.util.Arrays.asList;
+
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
-
-import static java.util.Arrays.asList;
 
 public class FtpClientImpl implements FtpClient {
 
@@ -21,8 +21,7 @@ public class FtpClientImpl implements FtpClient {
     establishConnection();
     // NOTE: imagine this lists the remote FTP files
     // according to the given filename pattern
-    List<String> remoteFiles = asList("conference-0.rec", "conference-1.rec");
-    return remoteFiles;
+    return asList("conference-0.rec", "conference-1.rec");
   }
 
   @Override

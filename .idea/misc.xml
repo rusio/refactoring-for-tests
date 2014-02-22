@@ -5,7 +5,7 @@
     <option name="formatter" value="ECLIPSE" />
     <option name="id" value="1374791418347" />
     <option name="name" value="default" />
-    <option name="pathToConfigFileJava" value="$PROJECT_DIR$/../../../dev-settings/conventions-LBM/lindenbaum-helios-formatter.xml" />
+    <option name="pathToConfigFileJava" value="$PROJECT_DIR$/../../../dev-settings/conventions-LBM/lindenbaum-helios-formatter-vortrag.xml" />
     <option name="selectedJavaProfile" value="lindenbaum-helios" />
   </component>
   <component name="EclipseCompilerSettings">
@@ -15,23 +15,6 @@
     <entry_points version="2.0" />
   </component>
   <component name="IdProvider" IDEtalkID="63FD9A19EDE4D8897760BF62DECF11E3" />
-  <component name="ProjectInspectionProfilesVisibleTreeState">
-    <entry key="Project Default">
-      <profile-state>
-        <expanded-state>
-          <State>
-            <id />
-          </State>
-          <State>
-            <id>Maven</id>
-          </State>
-          <State>
-            <id>OSGi</id>
-          </State>
-        </expanded-state>
-      </profile-state>
-    </entry>
-  </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_1_6" assert-keyword="true" jdk-15="true" project-jdk-name="JDK-1.7" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/out" />
   </component>
