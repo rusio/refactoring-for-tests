@@ -3,7 +3,7 @@ package distraction.original;
 import java.io.File;
 import java.util.List;
 
-public class Usage {
+class Usage {
 
   public static void main(String[] args) throws Exception {
     FtpClient ftpClient = new FtpClient("ftp://my.server.de");

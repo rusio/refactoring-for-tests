@@ -18,17 +18,17 @@ import static org.mockito.Mockito.when;
 public class NotificationServiceTest {
 
   // fixed test params
-  static final Date START_DATE = new Date();
-  static final String MESSAGE = "Test Message";
-  static final String[] PARTICIPANTS = { "sip:p0@xyz.de", "sip:p1@xyz.de" };
+  private static final Date START_DATE = new Date();
+  private static final String MESSAGE = "Test Message";
+  private static final String[] PARTICIPANTS = { "sip:p0@xyz.de", "sip:p1@xyz.de" };
 
   // mocked collaborators
-  MessageBuilder messageBuilder = mock(MessageBuilder.class);
-  MessageSender messageSender = mock(MessageSender.class);
-  MessagingFactory messagingFactory = mock(MessagingFactory.class);
+  private final MessageBuilder messageBuilder = mock(MessageBuilder.class);
+  private final MessageSender messageSender = mock(MessageSender.class);
+  private final MessagingFactory messagingFactory = mock(MessagingFactory.class);
 
   // object under test
-  NotificationService notificationService = new NotificationService(messagingFactory);
+  private final NotificationService notificationService = new NotificationService(messagingFactory);
 
   @Before
   public void setUp() {

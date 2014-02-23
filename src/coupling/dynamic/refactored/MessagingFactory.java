@@ -1,6 +1,6 @@
 package coupling.dynamic.refactored;
 
-public interface MessagingFactory {
+interface MessagingFactory {
 
   MessageBuilder createMessageBuilder();
 

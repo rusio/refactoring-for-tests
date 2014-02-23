@@ -1,6 +1,6 @@
 package coupling.static1.original;
 
-public class Usage {
+class Usage {
 
   public static void main(String[] args) throws Exception {
     BookingService bookingService = new BookingService();

@@ -6,7 +6,7 @@ import coupling.common.NotificationResult;
 import java.util.Date;
 import java.util.List;
 
-public class NotificationService {
+class NotificationService {
 
   public NotificationResult notifyParticipants(List<String> participantUris,
                                                Date startDate) {

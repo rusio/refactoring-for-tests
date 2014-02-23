@@ -5,7 +5,7 @@ import coupling.common.BookingResult;
 
 import java.util.Date;
 
-public class BookingService {
+class BookingService {
 
   private final ConferencingServer conferencingServer;
   private final MeetingCalendar meetingCalendar;

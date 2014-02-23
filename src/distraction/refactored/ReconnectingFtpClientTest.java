@@ -15,8 +15,8 @@ import static org.mockito.Mockito.when;
 public class ReconnectingFtpClientTest {
 
   private static final String PATTERN = "*.rec";
-  private FtpClient delegate = mock(FtpClient.class);
-  private ReconnectingFtpClient ftpClient = new ReconnectingFtpClient(delegate);
+  private final FtpClient delegate = mock(FtpClient.class);
+  private final ReconnectingFtpClient ftpClient = new ReconnectingFtpClient(delegate);
 
   @Test
   public void testListFiles_HappyPath() throws Exception {

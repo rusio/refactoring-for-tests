@@ -14,14 +14,14 @@ import static org.mockito.Mockito.when;
 public final class BookingServiceTest {
 
   // mocked collaborators
-  ConferencingServer conferencingServer = mock(ConferencingServer.class);
-  MeetingCalendar meetingCalendar = mock(MeetingCalendar.class);
+  private final ConferencingServer conferencingServer = mock(ConferencingServer.class);
+  private final MeetingCalendar meetingCalendar = mock(MeetingCalendar.class);
 
   // NOTE: now mocking an interface
-  BigFatContext bigFatContext = mock(BigFatContextImpl.class);
+  private final BigFatContext bigFatContext = mock(BigFatContextImpl.class);
 
   // object under test
-  BookingService bookingService = new BookingService(bigFatContext);
+  private final BookingService bookingService = new BookingService(bigFatContext);
 
   @Test
   public void testConferenceBooking_HappyPath() throws Exception {

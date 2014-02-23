@@ -12,7 +12,7 @@ import java.util.Map;
 /**
  * NOTE: context is no more passed, instead direct collaborators are passed.
  */
-public class BigFatContext extends FrameworkClass {
+class BigFatContext extends FrameworkClass {
 
   private final Map<String, Object> services = new HashMap<String, Object>();
 

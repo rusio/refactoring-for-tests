@@ -3,7 +3,6 @@ package coupling.static1.refactored;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertSame;
 import static org.mockito.Matchers.any;
 import static org.mockito.Matchers.anyString;
 import static org.mockito.Mockito.mock;
@@ -20,11 +19,11 @@ import coupling.common.BookingResult;
 public class BookingServiceTest {
 
   // mocked collaborators
-  ConferencingServer conferencingServer = mock(ConferencingServer.class);
-  MeetingCalendar meetingCalendar = mock(MeetingCalendar.class);
+  private final ConferencingServer conferencingServer = mock(ConferencingServer.class);
+  private final MeetingCalendar meetingCalendar = mock(MeetingCalendar.class);
 
   // object under test
-  BookingService bookingService = new BookingService(conferencingServer,
+  private final BookingService bookingService = new BookingService(conferencingServer,
                                                      meetingCalendar);
 
   @Test

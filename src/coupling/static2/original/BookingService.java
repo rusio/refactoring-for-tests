@@ -7,7 +7,7 @@ import coupling.static2.common.MeetingCalendar;
 
 import java.util.Date;
 
-public class BookingService {
+class BookingService {
 
   private final BigFatContext bigFatContext;
 

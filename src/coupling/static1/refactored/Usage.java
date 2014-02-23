@@ -1,6 +1,6 @@
 package coupling.static1.refactored;
 
-public class Usage {
+class Usage {
 
   public static void main(String[] args) throws Exception {
     // NOTE: the real implementation would inject

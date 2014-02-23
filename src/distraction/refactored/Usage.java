@@ -3,7 +3,7 @@ package distraction.refactored;
 import java.io.File;
 import java.util.List;
 
-public class Usage {
+class Usage {
 
   public static void main(String[] args) throws Exception {
     ChecksumVerifier checksumVerifier = new Md5ChecksumVerifier();

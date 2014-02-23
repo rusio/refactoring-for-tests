@@ -6,7 +6,7 @@ package coupling.static2.refactored2;
  * real collaborators. Using direct collaborators simplifies
  * the test setup.
  */
-public class Usage {
+class Usage {
 
   public static void main(String[] args) throws Exception {
     // NOTE: the real implementation would create

@@ -13,7 +13,7 @@ import java.util.Map;
  * NOTE: imagine it is difficult to instantiate this
  * class and its collaborators in a test harness.
  */
-public final class BigFatContext extends FrameworkClass {
+final class BigFatContext extends FrameworkClass {
 
   private final Map<String, Object> services = new HashMap<String, Object>();
 

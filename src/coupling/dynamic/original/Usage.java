@@ -11,7 +11,7 @@ import java.util.List;
 
 import static java.util.Arrays.asList;
 
-public class Usage {
+class Usage {
 
   public static void main(String[] args) throws Exception {
     // sample setup

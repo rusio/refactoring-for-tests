@@ -20,8 +20,8 @@ import org.junit.Test;
  */
 public class FtpClientImplTest {
 
-  ChecksumVerifier checksumVerifier = mock(ChecksumVerifier.class);
-  FtpClientImpl ftpClient = new FtpClientImpl("ftp://my.test.server",
+  private final ChecksumVerifier checksumVerifier = mock(ChecksumVerifier.class);
+  private final FtpClientImpl ftpClient = new FtpClientImpl("ftp://my.test.server",
                                               checksumVerifier);
 
   @Test

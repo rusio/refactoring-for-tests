@@ -4,7 +4,6 @@ import static java.util.Arrays.asList;
 
 import java.util.List;
 
-import coupling.common.BookingException;
 import coupling.common.BookingResult;
 import coupling.dynamic.common.BookingService;
 import coupling.dynamic.common.ConferencingServer;
@@ -12,7 +11,7 @@ import coupling.dynamic.common.ConferencingServerImpl;
 import coupling.dynamic.common.MeetingCalendar;
 import coupling.dynamic.common.MeetingCalendarImpl;
 
-public class Usage {
+class Usage {
 
   public static void main(String[] args) throws Exception {
     // sample setup

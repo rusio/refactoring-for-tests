@@ -16,7 +16,7 @@ import com.google.common.hash.HashCode;
 import com.google.common.hash.HashFunction;
 import com.google.common.hash.Hashing;
 
-public class FtpClient {
+class FtpClient {
 
   private static final int RECONNECT_RETRIES = 3;
   private final String serverUrl;
@@ -34,7 +34,7 @@ public class FtpClient {
       return cachedLists.get(namePattern, new Callable<List<String>>() {
         @Override
         public List<String> call() throws Exception {
-          establishConnection(RECONNECT_RETRIES);
+          connectToServer(RECONNECT_RETRIES);
           // NOTE: imagine this lists the remote FTP files
           // according to the given filename pattern
           return asList("conference-0.rec", "conference-1.rec");
@@ -46,17 +46,13 @@ public class FtpClient {
     }
   }
 
-  private void establishConnection(int retriesLeft) throws IOException {
+  private void connectToServer(int retriesLeft) throws IOException {
     try {
-      // NOTE: simulate some connection problems
-      System.out.println("Connecting to " + serverUrl);
-      if (Math.random() < 0.2) {
-        throw new IOException("Connection refused!");
-      }
+      establishConnection();
     }
     catch (IOException e) {
       if (retriesLeft > 0) {
-        establishConnection(retriesLeft - 1);
+        connectToServer(retriesLeft - 1);
       }
       else {
         throw new IOException("Failed to establish connection.", e);
@@ -64,8 +60,16 @@ public class FtpClient {
     }
   }
 
+  private void establishConnection() throws IOException {
+    // NOTE: simulate some connection problems
+    System.out.println("Connecting to " + serverUrl);
+    if (Math.random() < 0.2) {
+      throw new IOException("Connection refused!");
+    }
+  }
+
   public File downloadFile(String fileName, String checksum) throws IOException {
-    establishConnection(RECONNECT_RETRIES);
+    connectToServer(RECONNECT_RETRIES);
     // NOTE: imagine this downloads the file in /tmp
     File localFile = new File("/tmp", fileName);
     checkChecksum(localFile, checksum);

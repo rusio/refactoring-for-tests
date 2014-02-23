@@ -4,7 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
-public interface FtpClient {
+interface FtpClient {
 
   List<String> listFiles(String namePattern) throws IOException;
 
