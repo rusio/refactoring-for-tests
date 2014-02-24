@@ -1,17 +1,19 @@
 package coupling.static1.original;
 
-import coupling.common.BookingException;
-import coupling.common.BookingResult;
-
 import java.util.Date;
+
+import coupling.common.BookingException;
 
 class ConferencingServer {
 
-  public BookingResult bookConference(String topic, Date startDate) throws BookingException {
+  public void bookConference(String topic, Date startDate) throws BookingException {
     // NOTE: real implementation would connect to
     // the conferencing server and book the conference
-    System.out.println("TOPIC: " + topic + " START: " + startDate);
-
-    return BookingResult.forSuccess("0721/480848-000", startDate);
+    if (Math.random() > 0.2) {
+      System.out.println("TOPIC: " + topic + " START: " + startDate);
+    }
+    else {
+      throw new BookingException("Failed to book conference: " + topic);
+    }
   }
 }

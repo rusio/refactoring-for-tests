@@ -17,7 +17,7 @@ public final class BookingServiceTest {
     BookingService bookingService = new BookingService(bigFatContext);
 
     // book a conference
-    BookingResult result = bookingService.bookConference("Big Trouble in Little China");
+    BookingResult result = bookingService.bookConference("Tango & Cash");
 
     // check the state of the result
     assertTrue(result.isSuccess());

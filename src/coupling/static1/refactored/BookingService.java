@@ -1,9 +1,9 @@
 package coupling.static1.refactored;
 
+import java.util.Date;
+
 import coupling.common.BookingException;
 import coupling.common.BookingResult;
-
-import java.util.Date;
 
 class BookingService {
 
@@ -16,10 +16,11 @@ class BookingService {
     this.meetingCalendar = meetingCalendar;
   }
 
-  public BookingResult bookConference(String topic) throws BookingException {
+  public BookingResult bookConference(String topic) {
     Date startDate = meetingCalendar.nextPossibleDate();
     try {
-      return conferencingServer.bookConference(topic, startDate);
+      conferencingServer.bookConference(topic, startDate);
+      return BookingResult.forSuccess("0721/480848-000", startDate);
     }
     catch (BookingException e) {
       return BookingResult.forFailure(e);

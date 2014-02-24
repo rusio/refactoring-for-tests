@@ -5,6 +5,7 @@ import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 import static org.mockito.Matchers.any;
 import static org.mockito.Matchers.anyString;
+import static org.mockito.Mockito.doThrow;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -46,7 +47,7 @@ public class BookingServiceTest {
   @Test
   public void testConferenceBooking_ServerFailure() throws Exception {
     // setup the behaviour of the collaborators
-    when(conferencingServer.bookConference(anyString(), (Date) any())).thenThrow(new BookingException());
+    doThrow(new BookingException()).when(conferencingServer).bookConference(anyString(), (Date) any());
 
     // book a conference
     BookingResult result = bookingService.bookConference("Test Conference");

@@ -15,12 +15,13 @@ class BookingService {
     this.bigFatContext = bigFatContext;
   }
 
-  public BookingResult bookConference(String topic) throws BookingException {
+  public BookingResult bookConference(String topic) {
     MeetingCalendar meetingCalendar = bigFatContext.getMeetingCalendar();
     Date startDate = meetingCalendar.nextPossibleDate();
     try {
       ConferencingServer conferencingServer = bigFatContext.getConferencingServer();
-      return conferencingServer.bookConference(topic, startDate);
+      conferencingServer.bookConference(topic, startDate);
+      return BookingResult.forSuccess("0721/480848-000", startDate);
     }
     catch (BookingException e) {
       return BookingResult.forFailure(e);
