@@ -21,7 +21,7 @@ class BookingService {
     Date startDate = meetingCalendar.nextPossibleDate();
     try {
       conferencingServer.bookConference(topic, startDate);
-      return BookingResult.forSuccess("0721/480848-000", startDate);
+      return BookingResult.forSuccess(startDate);
     }
     catch (BookingException e) {
       return BookingResult.forFailure(e);

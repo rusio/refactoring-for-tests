@@ -55,7 +55,6 @@ public class BookingServiceTest {
     // verify the state of the BookingResult
     assertFalse(result.isSuccess());
     assertNotNull(result.getErrorCause());
-    assertNull(result.getPhoneNumber());
     assertNull(result.getStartDate());
 
     // QUESTION: Why do we assert on the state of the BookingResult in this test?

@@ -20,7 +20,6 @@ public class BookingServiceTest {
     // verify the state of the BookingResult
     assertTrue(result.isSuccess());
     assertNull(result.getErrorCause());
-    assertNotNull(result.getPhoneNumber());
     assertNotNull(result.getStartDate());
 
     // QUESTION: Can you see the problem with this test?
