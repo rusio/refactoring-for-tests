@@ -1,15 +1,17 @@
 package coupling.static2.refactored2;
 
-import coupling.common.BookingResult;
-import coupling.static2.common.ConferencingServer;
-import coupling.static2.common.MeetingCalendar;
-import org.junit.Test;
-
-import java.util.Date;
-
+import static junit.framework.Assert.assertTrue;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
+
+import java.util.Date;
+
+import org.junit.Test;
+
+import coupling.common.BookingResult;
+import coupling.static2.common.ConferencingServer;
+import coupling.static2.common.MeetingCalendar;
 
 public final class BookingServiceTest {
 
@@ -19,18 +21,19 @@ public final class BookingServiceTest {
 
   // object under test
   private final BookingService bookingService = new BookingService(conferencingServer,
-                                                     meetingCalendar);
+                                                                   meetingCalendar);
 
   @Test
   public void testConferenceBooking_HappyPath() throws Exception {
-    // setup the collaborators
+    // arrange
     Date startDate = new Date();
     when(meetingCalendar.nextPossibleDate()).thenReturn(startDate);
 
-    // book a conference
+    // act
     BookingResult result = bookingService.bookConference("Test Conference");
 
-    // verify the interactions with the collaborators
+    // assert
+    assertTrue(result.isSuccess());
     verify(conferencingServer).bookConference("Test Conference", startDate);
   }
 

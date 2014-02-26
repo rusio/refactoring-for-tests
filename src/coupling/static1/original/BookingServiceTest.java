@@ -1,11 +1,12 @@
 package coupling.static1.original;
 
-import coupling.common.BookingResult;
-import org.junit.Test;
-
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
+
+import org.junit.Test;
+
+import coupling.common.BookingResult;
 
 public class BookingServiceTest {
 
@@ -19,7 +20,7 @@ public class BookingServiceTest {
 
     // verify the state of the BookingResult
     assertTrue(result.isSuccess());
-    assertNull(result.getErrorCause());
+    assertNull(result.getError());
     assertNotNull(result.getStartDate());
 
     // QUESTION: Can you see the problem with this test?

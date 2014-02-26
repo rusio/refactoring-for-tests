@@ -4,12 +4,11 @@ import java.util.Date;
 
 public final class BookingResult {
 
-  private final BookingException errorCause;
+  private final BookingException error;
   private final Date startDate;
 
-  private BookingResult(BookingException errorCause,
-                        Date startDate) {
-    this.errorCause = errorCause;
+  private BookingResult(BookingException error, Date startDate) {
+    this.error = error;
     this.startDate = startDate;
   }
 
@@ -22,14 +21,14 @@ public final class BookingResult {
   }
 
   public boolean isSuccess() {
-    return errorCause == null;
+    return error == null;
   }
 
   public Date getStartDate() {
     return startDate;
   }
 
-  public BookingException getErrorCause() {
-    return errorCause;
+  public BookingException getError() {
+    return error;
   }
 }

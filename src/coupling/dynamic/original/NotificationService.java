@@ -1,10 +1,10 @@
 package coupling.dynamic.original;
 
-import coupling.common.NotificationException;
-import coupling.common.NotificationResult;
-
 import java.util.Date;
 import java.util.List;
+
+import coupling.common.NotificationException;
+import coupling.common.NotificationResult;
 
 class NotificationService {
 
@@ -20,7 +20,7 @@ class NotificationService {
         notifyParticipant(participantUri, notificationMessage);
       }
       catch (NotificationException e) {
-        result.addError(participantUri, e);
+        result.addError(e);
       }
     }
     return result;

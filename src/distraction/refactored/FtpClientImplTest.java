@@ -22,7 +22,7 @@ public class FtpClientImplTest {
 
   private final ChecksumVerifier checksumVerifier = mock(ChecksumVerifier.class);
   private final FtpClientImpl ftpClient = new FtpClientImpl("ftp://my.test.server",
-                                              checksumVerifier);
+                                                            checksumVerifier);
 
   @Test
   public void testListFiles() throws Exception {
@@ -35,7 +35,7 @@ public class FtpClientImplTest {
 
   @Test
   public void testDownloadFile() throws Exception {
-    String checksum = "234fsfd32";
+    String checksum = "d41d8cd98f00b204e9800998ecf8427e";
     File localFile = ftpClient.downloadFile("conference-0.rec", checksum);
     assertEquals("conference-0.rec", localFile.getName());
     // assertTrue(localFile.exists());

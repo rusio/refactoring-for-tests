@@ -1,15 +1,17 @@
 package coupling.static2.refactored1;
 
-import coupling.common.BookingResult;
-import coupling.static2.common.ConferencingServer;
-import coupling.static2.common.MeetingCalendar;
-import org.junit.Test;
-
-import java.util.Date;
-
+import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
+
+import java.util.Date;
+
+import org.junit.Test;
+
+import coupling.common.BookingResult;
+import coupling.static2.common.ConferencingServer;
+import coupling.static2.common.MeetingCalendar;
 
 public final class BookingServiceTest {
 
@@ -25,18 +27,17 @@ public final class BookingServiceTest {
 
   @Test
   public void testConferenceBooking_HappyPath() throws Exception {
-    // setup the bigFatContext
+    // arrange
+    Date startDate = new Date();
     when(bigFatContext.getConferencingServer()).thenReturn(conferencingServer);
     when(bigFatContext.getMeetingCalendar()).thenReturn(meetingCalendar);
-
-    // setup the collaborators
-    Date startDate = new Date();
     when(meetingCalendar.nextPossibleDate()).thenReturn(startDate);
 
-    // book a conference
+    // act
     BookingResult result = bookingService.bookConference("Test Conference");
 
-    // verify the interactions with the collaborators
+    // assert
+    assertTrue(result.isSuccess());
     verify(conferencingServer).bookConference("Test Conference", startDate);
   }
 
