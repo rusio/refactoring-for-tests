@@ -1,6 +1,6 @@
 package coupling.static2.original;
 
-import coupling.common.FrameworkClass;
+import coupling.static2.common.FrameworkClass;
 import coupling.static2.common.ConferencingServer;
 import coupling.static2.common.ConferencingServerImpl;
 import coupling.static2.common.MeetingCalendar;
