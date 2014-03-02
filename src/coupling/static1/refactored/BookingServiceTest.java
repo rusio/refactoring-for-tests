@@ -38,12 +38,9 @@ public class BookingServiceTest {
     BookingResult result = bookingService.bookConference("Test Conference");
 
     // assert
-    assertTrue(result.isSuccess());
     verify(conferencingServer).bookConference("Test Conference", startDate);
-
-    // QUESTION: what type of testing do we see here?
-
-    // QUESTION: Why don't we assert on the state of the BookingResult in this test?
+    assertTrue(result.isSuccess());
+    assertEquals(startDate, result.getStartDate());
   }
 
   @Test
@@ -57,8 +54,6 @@ public class BookingServiceTest {
     // verify the state of the BookingResult
     assertFalse(result.isSuccess());
     assertEquals("HTTP 500", result.getError().getMessage());
-
-    // QUESTION: Why do we assert on the state of the BookingResult in this test?
   }
 
   private void arrangeBookingException(String message) throws BookingException {
