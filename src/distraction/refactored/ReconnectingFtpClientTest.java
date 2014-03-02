@@ -28,7 +28,7 @@ public class ReconnectingFtpClientTest {
   public void testListFiles_ReconnectSuccess() throws Exception {
     List<String> veryLastResult = asList("conference.rec");
 
-    // simulate a 3 failures and a success at the very last try
+    // simulate 3 failures and one success at the very last attempt
     when(delegate.listFiles(PATTERN)).thenThrow(new IOException("1"),
                                                 new IOException("2"),
                                                 new IOException("3"))
@@ -40,7 +40,7 @@ public class ReconnectingFtpClientTest {
 
   @Test
   public void testListFiles_ReconnectFailure() throws Exception {
-    // simulate 4 failures - the last retry has failed too
+    // simulate 4 failures - the last attempt has failed too
     when(delegate.listFiles(PATTERN)).thenThrow(new IOException("1"),
                                                 new IOException("2"),
                                                 new IOException("3"),

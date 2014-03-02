@@ -7,7 +7,7 @@ import coupling.common.BookingException;
 class ConferencingServer {
 
   public void bookConference(String topic, Date startDate) throws BookingException {
-    // NOTE: real implementation would connect to
+    // NOTE: rhe real implementation would connect to
     // the conferencing server and book the conference
     if (Math.random() > 0.2) {
       System.out.println("TOPIC: " + topic + " START: " + startDate);

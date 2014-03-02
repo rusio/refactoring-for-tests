@@ -19,15 +19,12 @@ public class FtpClientImpl implements FtpClient {
   @Override
   public List<String> listFiles(String pattern) throws IOException {
     establishConnection();
-    // NOTE: imagine this lists the remote FTP files
-    // according to the given filename pattern
     return asList("conference-0.rec", "conference-1.rec");
   }
 
   @Override
   public File downloadFile(String fileName, String checksum) throws IOException {
     establishConnection();
-    // NOTE: imagine this downloads the file in /tmp
     File localFile = new File("/tmp", fileName);
     checksumVerifier.verifyChecksum(localFile, checksum);
     return localFile;

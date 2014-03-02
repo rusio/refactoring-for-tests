@@ -45,13 +45,13 @@ public class BookingServiceTest {
 
   @Test
   public void testConferenceBooking_ServerFailure() throws Exception {
-    // setup the behaviour of the collaborators
+    // arrange
     arrangeBookingException("HTTP 500");
 
-    // book a conference
+    // act
     BookingResult result = bookingService.bookConference("Test Conference");
 
-    // verify the state of the BookingResult
+    // assert
     assertFalse(result.isSuccess());
     assertEquals("HTTP 500", result.getError().getMessage());
   }

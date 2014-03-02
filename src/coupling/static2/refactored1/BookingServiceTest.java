@@ -18,8 +18,6 @@ public final class BookingServiceTest {
   // mocked collaborators
   private final ConferencingServer conferencingServer = mock(ConferencingServer.class);
   private final MeetingCalendar meetingCalendar = mock(MeetingCalendar.class);
-
-  // NOTE: now mocking an interface
   private final BigFatContext bigFatContext = mock(BigFatContextImpl.class);
 
   // object under test

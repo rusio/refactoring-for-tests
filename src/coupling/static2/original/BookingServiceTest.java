@@ -10,7 +10,7 @@ public final class BookingServiceTest {
   @Test
   public void testConferenceBooking_HappyPath() throws Exception {
 
-    // collaborator containing other collaborators
+    // collaborator as supplier for other collaborators
     BigFatContext bigFatContext = new BigFatContext();
 
     // object under test

@@ -12,13 +12,13 @@ public class BookingServiceTest {
 
   @Test
   public void testConferenceBooking_HappyPath() throws Exception {
-    // object under test
+    // arrange
     BookingService bookingService = new BookingService();
 
-    // book a conference
+    // act
     BookingResult result = bookingService.bookConference("Test Conference");
 
-    // verify the state of the BookingResult
+    // assert
     assertTrue(result.isSuccess());
     assertNull(result.getError());
     assertNotNull(result.getStartDate());

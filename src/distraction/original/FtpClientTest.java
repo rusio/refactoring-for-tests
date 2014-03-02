@@ -7,8 +7,8 @@ public class FtpClientTest {
   @Test
   public void testCoreFunctionality() throws Exception {
     // CHALLENGE: write a test for one of the core responsibilities
-    // - list files
-    // - download files
+    // - list the remote files
+    // - download remote files
   }
 
   @Test

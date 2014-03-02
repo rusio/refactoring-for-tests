@@ -15,8 +15,8 @@ class MeetingCalendar {
   }
 
   public Date nextPossibleDate() {
-    // NOTE: real implementation would look up some
-    // calendar database and calculate the date
+    // NOTE: the real implementation would look up
+    // some calendar database and calculate the date
     return new Date();
   }
 }

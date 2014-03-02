@@ -11,12 +11,12 @@ import java.util.List;
 import org.junit.Test;
 
 /**
- * NOTE: this must be an integration test, because of the real impl.
- * Pieces like this that cross the process boundary are naturally
- * a subject to integration testing. At some point you have to test
- * the units that communicate with the outer world by ITs. We try to
- * minimize the functionality that needs testing with ITs, and extract
- * it from the rest, where we can use fast and isolated unit tests.
+ * NOTE: this core functionality must be tested with an integration
+ * test, because of the nature of the thing - list and download remote
+ * files. Units like this that act across the process boundary are
+ * naturally a subject to integration testing. But we try to
+ * minimize the functionality that needs integration testing, and isolate
+ * it from the rest, where we can use fast and robust unit tests.
  */
 public class FtpClientImplTest {
 
@@ -26,8 +26,6 @@ public class FtpClientImplTest {
 
   @Test
   public void testListFiles() throws Exception {
-    // NOTE: listFiles() opens a real FTP connection so
-    // now the FTP server must be set up accordingly.
     List<String> expectedList = asList("conference-0.rec", "conference-1.rec");
     List<String> actualList = ftpClient.listFiles("*.rec");
     assertEquals(expectedList, actualList);
