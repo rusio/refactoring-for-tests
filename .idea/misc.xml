@@ -8,9 +8,6 @@
     <option name="pathToConfigFileJava" value="$PROJECT_DIR$/../../../dev-settings/conventions-LBM/lindenbaum-helios-formatter-vortrag.xml" />
     <option name="selectedJavaProfile" value="lindenbaum-helios" />
   </component>
-  <component name="EclipseCompilerSettings">
-    <option name="MAXIMUM_HEAP_SIZE" value="256" />
-  </component>
   <component name="EntryPointsManager">
     <entry_points version="2.0" />
   </component>
