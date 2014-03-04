@@ -1,9 +1,10 @@
 package coupling.static2.original;
 
-import coupling.common.BookingResult;
+import static org.junit.Assert.assertTrue;
+
 import org.junit.Test;
 
-import static org.junit.Assert.assertTrue;
+import coupling.common.BookingResult;
 
 public final class BookingServiceTest {
 
@@ -11,13 +12,13 @@ public final class BookingServiceTest {
   public void testConferenceBooking_HappyPath() throws Exception {
 
     // collaborator as supplier for other collaborators
-    BigFatContext bigFatContext = new BigFatContext();
+    BigFatContext context = new BigFatContext();
 
     // object under test
-    BookingService bookingService = new BookingService(bigFatContext);
+    BookingService service = new BookingService(context);
 
     // book a conference
-    BookingResult result = bookingService.bookConference("Tango & Cash");
+    BookingResult result = service.bookConference("Tango & Cash");
 
     // check the state of the result
     assertTrue(result.isSuccess());

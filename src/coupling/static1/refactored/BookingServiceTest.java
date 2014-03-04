@@ -21,24 +21,24 @@ import coupling.common.BookingResult;
 public class BookingServiceTest {
 
   // mocked collaborators
-  private final ConferencingServer conferencingServer = mock(ConferencingServer.class);
-  private final MeetingCalendar meetingCalendar = mock(MeetingCalendar.class);
+  private final ConferencingServer server = mock(ConferencingServer.class);
+  private final MeetingCalendar calendar = mock(MeetingCalendar.class);
 
   // object under test
-  private final BookingService bookingService = new BookingService(conferencingServer,
-                                                                   meetingCalendar);
+  private final BookingService bookingService = new BookingService(server,
+                                                                   calendar);
 
   @Test
   public void testConferenceBooking_HappyPath() throws Exception {
     // arrange
     Date startDate = new Date();
-    when(meetingCalendar.nextPossibleDate()).thenReturn(startDate);
+    when(calendar.nextPossibleDate()).thenReturn(startDate);
 
     // act
     BookingResult result = bookingService.bookConference("Test Conference");
 
     // assert
-    verify(conferencingServer).bookConference("Test Conference", startDate);
+    verify(server).bookConference("Test Conference", startDate);
     assertTrue(result.isSuccess());
     assertEquals(startDate, result.getStartDate());
   }
@@ -58,6 +58,6 @@ public class BookingServiceTest {
 
   private void arrangeBookingException(String message) throws BookingException {
     Stubber stubber = doThrow(new BookingException(message));
-    stubber.when(conferencingServer).bookConference(anyString(), (Date) any());
+    stubber.when(server).bookConference(anyString(), (Date) any());
   }
 }

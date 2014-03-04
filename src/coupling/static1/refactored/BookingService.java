@@ -7,19 +7,18 @@ import coupling.common.BookingResult;
 
 class BookingService {
 
-  private final ConferencingServer conferencingServer;
-  private final MeetingCalendar meetingCalendar;
+  private final ConferencingServer server;
+  private final MeetingCalendar calendar;
 
-  public BookingService(ConferencingServer conferencingServer,
-                        MeetingCalendar meetingCalendar) {
-    this.conferencingServer = conferencingServer;
-    this.meetingCalendar = meetingCalendar;
+  public BookingService(ConferencingServer server, MeetingCalendar calendar) {
+    this.server = server;
+    this.calendar = calendar;
   }
 
   public BookingResult bookConference(String topic) {
-    Date startDate = meetingCalendar.nextPossibleDate();
+    Date startDate = calendar.nextPossibleDate();
     try {
-      conferencingServer.bookConference(topic, startDate);
+      server.bookConference(topic, startDate);
       return BookingResult.forSuccess(startDate);
     }
     catch (BookingException e) {

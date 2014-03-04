@@ -1,26 +1,26 @@
 package coupling.static2.refactored1;
 
+import java.util.Date;
+
 import coupling.common.BookingException;
 import coupling.common.BookingResult;
 import coupling.static2.common.ConferencingServer;
 import coupling.static2.common.MeetingCalendar;
 
-import java.util.Date;
-
 class BookingService {
 
-  private final BigFatContext bigFatContext;
+  private final BigFatContext context;
 
-  public BookingService(BigFatContext bigFatContext) {
-    this.bigFatContext = bigFatContext;
+  public BookingService(BigFatContext context) {
+    this.context = context;
   }
 
   public BookingResult bookConference(String topic) {
-    MeetingCalendar meetingCalendar = bigFatContext.getMeetingCalendar();
-    Date startDate = meetingCalendar.nextPossibleDate();
+    MeetingCalendar calendar = context.getMeetingCalendar();
+    Date startDate = calendar.nextPossibleDate();
     try {
-      ConferencingServer conferencingServer = bigFatContext.getConferencingServer();
-      conferencingServer.bookConference(topic, startDate);
+      ConferencingServer server = context.getConferencingServer();
+      server.bookConference(topic, startDate);
       return BookingResult.forSuccess(startDate);
     }
     catch (BookingException e) {

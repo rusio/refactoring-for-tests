@@ -16,25 +16,24 @@ import coupling.static2.common.MeetingCalendar;
 public final class BookingServiceTest {
 
   // mocked collaborators
-  private final ConferencingServer conferencingServer = mock(ConferencingServer.class);
-  private final MeetingCalendar meetingCalendar = mock(MeetingCalendar.class);
+  private final ConferencingServer server = mock(ConferencingServer.class);
+  private final MeetingCalendar calendar = mock(MeetingCalendar.class);
 
   // object under test
-  private final BookingService bookingService = new BookingService(conferencingServer,
-                                                                   meetingCalendar);
+  private final BookingService service = new BookingService(server, calendar);
 
   @Test
   public void testConferenceBooking_HappyPath() throws Exception {
     // arrange
     Date startDate = new Date();
-    when(meetingCalendar.nextPossibleDate()).thenReturn(startDate);
+    when(calendar.nextPossibleDate()).thenReturn(startDate);
 
     // act
-    BookingResult result = bookingService.bookConference("Test Conference");
+    BookingResult result = service.bookConference("Test Conference");
 
     // assert
     assertTrue(result.isSuccess());
-    verify(conferencingServer).bookConference("Test Conference", startDate);
+    verify(server).bookConference("Test Conference", startDate);
   }
 
 }

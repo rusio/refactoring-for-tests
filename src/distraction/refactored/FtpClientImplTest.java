@@ -20,9 +20,9 @@ import org.junit.Test;
  */
 public class FtpClientImplTest {
 
-  private final ChecksumVerifier checksumVerifier = mock(ChecksumVerifier.class);
+  private final ChecksumVerifier verifier = mock(ChecksumVerifier.class);
   private final FtpClientImpl ftpClient = new FtpClientImpl("ftp://my.test.server",
-                                                            checksumVerifier);
+                                                            verifier);
 
   @Test
   public void testListFiles() throws Exception {
@@ -37,6 +37,6 @@ public class FtpClientImplTest {
     File localFile = ftpClient.downloadFile("conference-0.rec", checksum);
     assertEquals("conference-0.rec", localFile.getName());
     // assertTrue(localFile.exists());
-    verify(checksumVerifier).verifyChecksum(localFile, checksum);
+    verify(verifier).verifyChecksum(localFile, checksum);
   }
 }

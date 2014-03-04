@@ -9,11 +9,11 @@ import java.util.List;
 public class FtpClientImpl implements FtpClient {
 
   private final String serverUrl;
-  private final ChecksumVerifier checksumVerifier;
+  private final ChecksumVerifier verifier;
 
-  public FtpClientImpl(String serverUrl, ChecksumVerifier checksumVerifier) {
+  public FtpClientImpl(String serverUrl, ChecksumVerifier verifier) {
     this.serverUrl = serverUrl;
-    this.checksumVerifier = checksumVerifier;
+    this.verifier = verifier;
   }
 
   @Override
@@ -26,7 +26,7 @@ public class FtpClientImpl implements FtpClient {
   public File downloadFile(String fileName, String checksum) throws IOException {
     establishConnection();
     File localFile = new File("/tmp", fileName);
-    checksumVerifier.verifyChecksum(localFile, checksum);
+    verifier.verifyChecksum(localFile, checksum);
     return localFile;
   }
 

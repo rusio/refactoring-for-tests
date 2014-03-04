@@ -9,9 +9,9 @@ package coupling.static2.refactored2;
 class Usage {
 
   public static void main(String[] args) throws Exception {
-    BigFatContext bigFatContext = new BigFatContext();
-    BookingService bookingService = new BookingService(bigFatContext.getConferencingServer(),
-                                                       bigFatContext.getMeetingCalendar());
-    bookingService.bookConference("Big Trouble in Little China");
+    BigFatContext context = new BigFatContext();
+    BookingService service = new BookingService(context.getConferencingServer(),
+                                                context.getMeetingCalendar());
+    service.bookConference("Big Trouble in Little China");
   }
 }

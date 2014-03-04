@@ -6,9 +6,8 @@ import java.util.List;
 class Usage {
 
   public static void main(String[] args) throws Exception {
-    ChecksumVerifier checksumVerifier = new Md5ChecksumVerifier();
-    FtpClient delegate = new FtpClientImpl("ftp://my.server.de",
-                                           checksumVerifier);
+    ChecksumVerifier verifier = new Md5ChecksumVerifier();
+    FtpClient delegate = new FtpClientImpl("ftp://my.server.de", verifier);
     FtpClient ftpClient = new CachingFtpClient(new ReconnectingFtpClient(delegate));
     List<String> fileNames = ftpClient.listFiles("*.rec");
     for (String fileName : fileNames) {

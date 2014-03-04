@@ -1,18 +1,18 @@
 package coupling.static1.original;
 
+import java.util.Date;
+
 import coupling.common.BookingException;
 import coupling.common.BookingResult;
-
-import java.util.Date;
 
 class BookingService {
 
   public BookingResult bookConference(String topic) {
-    ConferencingServer conferencingServer = new ConferencingServer();
-    MeetingCalendar meetingCalendar = MeetingCalendar.getInstance();
-    Date startDate = meetingCalendar.nextPossibleDate();
+    ConferencingServer server = new ConferencingServer();
+    MeetingCalendar calendar = MeetingCalendar.getInstance();
+    Date startDate = calendar.nextPossibleDate();
     try {
-      conferencingServer.bookConference(topic, startDate);
+      server.bookConference(topic, startDate);
       return BookingResult.forSuccess(startDate);
     }
     catch (BookingException e) {
