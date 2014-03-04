@@ -1,8 +1,8 @@
 package coupling.static1.refactored;
 
-import coupling.common.BookingException;
-
 import java.util.Date;
+
+import coupling.common.BookingException;
 
 interface ConferencingServer {
 

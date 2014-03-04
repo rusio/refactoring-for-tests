@@ -2,6 +2,8 @@ package coupling.static1.original;
 
 import java.util.Date;
 
+import common.Chances;
+
 class MeetingCalendar {
 
   private static final MeetingCalendar instance = new MeetingCalendar();
@@ -15,8 +17,13 @@ class MeetingCalendar {
   }
 
   public Date nextPossibleDate() {
-    // NOTE: the real implementation would look up
-    // some calendar database and calculate the date
-    return new Date();
+    if (Chances.isHappyPath()) {
+      // NOTE: imagine this uses a calendar database to calculate the date
+      return new Date();
+    }
+    else {
+      // NOTE: simulate that no date is available for the meeting
+      return null;
+    }
   }
 }

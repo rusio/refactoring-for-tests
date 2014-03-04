@@ -2,14 +2,14 @@ package coupling.static1.refactored;
 
 import java.util.Date;
 
+import common.Chances;
 import coupling.common.BookingException;
 
 class ConferencingServerImpl implements ConferencingServer {
 
   @Override
   public void bookConference(String topic, Date startDate) throws BookingException {
-    System.out.println("TOPIC: " + topic + " START: " + startDate);
-    if (Math.random() > 0.2) {
+    if (Chances.isHappyPath()) {
       System.out.println("TOPIC: " + topic + " START: " + startDate);
     }
     else {

@@ -1,13 +1,14 @@
 package coupling.dynamic.original;
 
-import coupling.common.NotificationResult;
-import org.junit.Test;
+import static java.util.Arrays.asList;
+import static org.junit.Assert.assertTrue;
 
 import java.util.Date;
 import java.util.List;
 
-import static java.util.Arrays.asList;
-import static org.junit.Assert.assertTrue;
+import org.junit.Test;
+
+import coupling.common.NotificationResult;
 
 public class NotificationServiceTest {
 

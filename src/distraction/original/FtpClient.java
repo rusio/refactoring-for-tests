@@ -15,6 +15,7 @@ import com.google.common.cache.CacheBuilder;
 import com.google.common.hash.HashCode;
 import com.google.common.hash.HashFunction;
 import com.google.common.hash.Hashing;
+import common.Chances;
 
 class FtpClient {
 
@@ -35,8 +36,7 @@ class FtpClient {
         @Override
         public List<String> call() throws Exception {
           connectToServer(RECONNECT_RETRIES);
-          // NOTE: the real implementation would list the remote
-          // FTP files according to the given filename pattern
+          // NOTE: imagine this lists the remote FTP files according to the given pattern
           return asList("conference-0.rec", "conference-1.rec");
         }
       });
@@ -61,16 +61,18 @@ class FtpClient {
   }
 
   private void establishConnection() throws IOException {
-    // NOTE: simulate some connection problems
-    System.out.println("Connecting to " + serverUrl);
-    if (Math.random() < 0.2) {
+    if (Chances.isHappyPath()) {
+      System.out.println("Connected to " + serverUrl);
+    }
+    else {
+      // NOTE: simulate connection problems
       throw new IOException("Connection refused!");
     }
   }
 
   public File downloadFile(String fileName, String checksum) throws IOException {
     connectToServer(RECONNECT_RETRIES);
-    // NOTE: the real implementation would store the file in /tmp
+    // NOTE: imagine this stores the file on the file system
     File localFile = new File("/tmp", fileName);
     checkChecksum(localFile, checksum);
     return localFile;

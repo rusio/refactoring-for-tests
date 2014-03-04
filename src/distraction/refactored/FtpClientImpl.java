@@ -6,6 +6,8 @@ import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
+import common.Chances;
+
 public class FtpClientImpl implements FtpClient {
 
   private final String serverUrl;
@@ -31,9 +33,11 @@ public class FtpClientImpl implements FtpClient {
   }
 
   private void establishConnection() throws IOException {
-    System.out.println("Connecting to " + serverUrl);
-    // NOTE: simulate some connection problems
-    if (Math.random() < 0.2) {
+    if (Chances.isHappyPath()) {
+      System.out.println("Connected to " + serverUrl);
+    }
+    else {
+      // NOTE: simulate connection problems
       throw new IOException("Connection refused!");
     }
   }
