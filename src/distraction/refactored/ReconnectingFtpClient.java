@@ -24,20 +24,20 @@ public class ReconnectingFtpClient implements FtpClient {
         lastCause = e;
       }
     }
-    throw new IOException("Failed to establish connection.", lastCause);
+    throw new IOException("Failed after " + RETRY_COUNT + " retries!", lastCause);
   }
 
   @Override
   public File downloadFile(String fileName, String checksum) throws IOException {
-    IOException cause = null;
+    IOException lastCause = null;
     for (int i = 0; i <= RETRY_COUNT; i++) {
       try {
         return delegate.downloadFile(fileName, checksum);
       }
       catch (IOException e) {
-        cause = e;
+        lastCause = e;
       }
     }
-    throw new IOException("Failed after " + RETRY_COUNT + " retries!", cause);
+    throw new IOException("Failed after " + RETRY_COUNT + " retries!", lastCause);
   }
 }
