@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/refactoring-for-tests.iml" filepath="$PROJECT_DIR$/refactoring-for-tests.iml" />
+      <module fileurl="file://$PROJECT_DIR$/common/common.iml" filepath="$PROJECT_DIR$/common/common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/original/original.iml" filepath="$PROJECT_DIR$/original/original.iml" />
+      <module fileurl="file://$PROJECT_DIR$/refactored/refactored.iml" filepath="$PROJECT_DIR$/refactored/refactored.iml" />
     </modules>
   </component>
 </project>
