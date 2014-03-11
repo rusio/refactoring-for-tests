@@ -8,3 +8,24 @@ Bringing existing code in better shape is essential when existing code must be c
 These are the sources for the presentation. See also:
 - Slides: http://www.slideshare.net/rfilipov/refactoring-for-tests-0lides
 - Handout: http://www.slideshare.net/rfilipov/refactoring-fortests-handout
+
+
+Importing in Intellij IDEA
+==========================
+
+* File > Open...
+
+
+Importing in Eclipse
+====================
+
+3rd Party Libraries
+-------------------
+
+* Edit the file refactoring-for-tests.userlibraries and adapt your local path.
+* Window > Preferences > Java > Build Path > User Libraries > Import...
+
+Project Modules
+---------------
+
+File > Import... > Existing Projects into Workspace
