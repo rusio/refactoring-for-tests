@@ -3,8 +3,6 @@ package coupling;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.google.common.collect.Lists;
-
 public final class NotificationResult {
 
   private final List<NotificationException> errors = new ArrayList<NotificationException>();
@@ -18,6 +16,6 @@ public final class NotificationResult {
   }
 
   public List<NotificationException> getErrors() {
-    return Lists.newArrayList(errors);
+    return new ArrayList<NotificationException>(errors);
   }
 }
