@@ -1,8 +1,9 @@
 package coupling1;
 
-import java.util.Date;
+import simulation.Chances;
+import simulation.RemoteCalls;
 
-import chance.Chances;
+import java.util.Date;
 
 class MeetingCalendar {
 
@@ -19,6 +20,7 @@ class MeetingCalendar {
   public Date nextPossibleDate() {
     if (Chances.isHappyPath()) {
       // NOTE: imagine this uses a calendar database to calculate the date
+      RemoteCalls.perform();
       return new Date();
     }
     else {

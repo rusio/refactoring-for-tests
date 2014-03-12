@@ -1,4 +1,4 @@
-package chance;
+package simulation;
 
 /**
  * A utility class to simulate program execution

@@ -1,9 +1,10 @@
 package coupling3;
 
-import java.util.Date;
-
-import chance.Chances;
 import coupling.BookingException;
+import simulation.Chances;
+import simulation.RemoteCalls;
+
+import java.util.Date;
 
 public class ConferencingServerImpl implements ConferencingServer {
 
@@ -11,6 +12,7 @@ public class ConferencingServerImpl implements ConferencingServer {
   public void bookConference(String topic, Date startDate) throws BookingException {
     if (Chances.isHappyPath()) {
       // NOTE: imagine this connects to the conferencing server and books the conference
+      RemoteCalls.perform();
       System.out.println("TOPIC: " + topic + " START: " + startDate);
     }
     else {

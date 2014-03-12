@@ -1,6 +1,12 @@
 package distraction;
 
-import static java.util.Arrays.asList;
+import com.google.common.cache.Cache;
+import com.google.common.cache.CacheBuilder;
+import com.google.common.hash.HashCode;
+import com.google.common.hash.HashFunction;
+import com.google.common.hash.Hashing;
+import simulation.Chances;
+import simulation.RemoteCalls;
 
 import java.io.File;
 import java.io.IOException;
@@ -10,12 +16,7 @@ import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
 
-import com.google.common.cache.Cache;
-import com.google.common.cache.CacheBuilder;
-import com.google.common.hash.HashCode;
-import com.google.common.hash.HashFunction;
-import com.google.common.hash.Hashing;
-import chance.Chances;
+import static java.util.Arrays.asList;
 
 class FtpClient {
 
@@ -62,6 +63,7 @@ class FtpClient {
 
   private void establishConnection() throws IOException {
     if (Chances.isHappyPath()) {
+      RemoteCalls.perform();
       System.out.println("Connected to " + serverUrl);
     }
     else {

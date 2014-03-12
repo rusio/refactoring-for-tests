@@ -1,12 +1,13 @@
 package distraction;
 
-import static java.util.Arrays.asList;
+import simulation.Chances;
+import simulation.RemoteCalls;
 
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
-import chance.Chances;
+import static java.util.Arrays.asList;
 
 public class FtpClientImpl implements FtpClient {
 
@@ -34,6 +35,7 @@ public class FtpClientImpl implements FtpClient {
 
   private void establishConnection() throws IOException {
     if (Chances.isHappyPath()) {
+      RemoteCalls.perform();
       System.out.println("Connected to " + serverUrl);
     }
     else {
