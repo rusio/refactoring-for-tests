@@ -9,7 +9,7 @@ import java.util.List;
 
 import static java.util.Arrays.asList;
 
-public class FtpClientImpl implements FtpClient {
+class FtpClientImpl implements FtpClient {
 
   private final String serverUrl;
   private final ChecksumVerifier verifier;

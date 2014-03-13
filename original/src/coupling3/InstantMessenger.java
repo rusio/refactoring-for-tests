@@ -6,7 +6,13 @@ import simulation.RemoteCalls;
 
 class InstantMessenger {
 
-  public void sendMessage(String recepientUri, String messageText) throws NotificationException {
+  private final String recepientUri;
+
+  public InstantMessenger(String recepientUri) {
+    this.recepientUri = recepientUri;
+  }
+
+  public void sendMessage(String messageText) throws NotificationException {
     if (Chances.isHappyPath()) {
       // NOTE: imagine this sends an instant message via SIP
       RemoteCalls.perform();

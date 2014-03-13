@@ -2,8 +2,8 @@ package coupling3;
 
 import coupling.NotificationException;
 
-public interface MessageSender {
+interface MessageSender {
 
-  void notifyParticipant(String recepientUri, String messageText) throws NotificationException;
+  void notifyParticipant(String messageText) throws NotificationException;
 
 }

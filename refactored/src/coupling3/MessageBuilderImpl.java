@@ -2,7 +2,7 @@ package coupling3;
 
 import java.util.Date;
 
-public class MessageBuilderImpl implements MessageBuilder {
+class MessageBuilderImpl implements MessageBuilder {
 
   @Override
   public String buildNotificationMessage(Date startDate) {

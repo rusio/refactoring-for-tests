@@ -6,7 +6,13 @@ import simulation.RemoteCalls;
 
 class EmailSender {
 
-  public void sendEmail(String recepientUri, String messageText) throws NotificationException {
+  private final String recepientUri;
+
+  public EmailSender(String recepientUri) {
+    this.recepientUri = recepientUri;
+  }
+
+  public void sendEmail(String messageText) throws NotificationException {
     if (Chances.isHappyPath()) {
       // NOTE: imagine this sends an email message via SMTP
       RemoteCalls.perform();

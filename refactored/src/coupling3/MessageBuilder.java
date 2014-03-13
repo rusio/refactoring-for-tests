@@ -2,7 +2,7 @@ package coupling3;
 
 import java.util.Date;
 
-public interface MessageBuilder {
+interface MessageBuilder {
 
   String buildNotificationMessage(Date startDate);
 

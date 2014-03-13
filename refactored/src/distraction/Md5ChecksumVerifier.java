@@ -1,14 +1,14 @@
 package distraction;
 
-import java.io.File;
-import java.io.IOException;
-import java.nio.file.Files;
-
 import com.google.common.hash.HashCode;
 import com.google.common.hash.HashFunction;
 import com.google.common.hash.Hashing;
 
-public class Md5ChecksumVerifier implements ChecksumVerifier {
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+
+class Md5ChecksumVerifier implements ChecksumVerifier {
 
   @Override
   public void verifyChecksum(File localFile, String checksum) throws IOException {

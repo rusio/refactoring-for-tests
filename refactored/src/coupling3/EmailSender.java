@@ -4,10 +4,16 @@ import simulation.Chances;
 import coupling.NotificationException;
 import simulation.RemoteCalls;
 
-public class EmailSender implements MessageSender {
+class EmailSender implements MessageSender {
+
+  private final String recepientUri;
+
+  public EmailSender(String recepientUri) {
+    this.recepientUri = recepientUri;
+  }
 
   @Override
-  public void notifyParticipant(String recepientUri, String messageText) throws NotificationException {
+  public void notifyParticipant(String messageText) throws NotificationException {
     if (Chances.isHappyPath()) {
       // NOTE: imagine this sends an email message via  SMTP
       RemoteCalls.perform();

@@ -10,7 +10,7 @@ import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
 
-public class CachingFtpClient implements FtpClient {
+class CachingFtpClient implements FtpClient {
 
   private final FtpClient delegate;
   private final Cache<String, List<String>> cachedLists;

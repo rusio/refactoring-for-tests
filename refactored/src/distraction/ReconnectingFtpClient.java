@@ -4,7 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
-public class ReconnectingFtpClient implements FtpClient {
+class ReconnectingFtpClient implements FtpClient {
 
   private static final int RETRY_COUNT = 3;
   private final FtpClient delegate;

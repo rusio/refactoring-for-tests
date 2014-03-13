@@ -1,6 +1,6 @@
 package coupling3;
 
-public class MessagingFactoryImpl implements MessagingFactory {
+class MessagingFactoryImpl implements MessagingFactory {
 
   @Override
   public MessageBuilder createMessageBuilder() {
@@ -10,10 +10,10 @@ public class MessagingFactoryImpl implements MessagingFactory {
   @Override
   public MessageSender createMessageSender(String recepientUri) {
     if (recepientUri.startsWith("sip:")) {
-      return new InstantMessenger();
+      return new InstantMessenger(recepientUri);
     }
     if (recepientUri.startsWith("mailto:")) {
-      return new EmailSender();
+      return new EmailSender(recepientUri);
     }
     throw new IllegalArgumentException("URI scheme not supported: "
                                        + recepientUri);

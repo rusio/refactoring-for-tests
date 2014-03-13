@@ -1,10 +1,10 @@
 package coupling3;
 
-import java.util.Date;
-import java.util.List;
-
 import coupling.NotificationException;
 import coupling.NotificationResult;
+
+import java.util.Date;
+import java.util.List;
 
 class NotificationService {
 
@@ -42,7 +42,7 @@ class NotificationService {
   private void notifyParticipant(String participantUri,
                                  String notificationMessage) throws NotificationException {
     MessageSender messageSender = messagingFactory.createMessageSender(participantUri);
-    messageSender.notifyParticipant(participantUri, notificationMessage);
+    messageSender.notifyParticipant(notificationMessage);
   }
 
 }

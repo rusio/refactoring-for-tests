@@ -1,10 +1,10 @@
 package coupling3;
 
-import java.util.Date;
-import java.util.List;
-
 import coupling.NotificationException;
 import coupling.NotificationResult;
+
+import java.util.Date;
+import java.util.List;
 
 class NotificationService {
 
@@ -34,12 +34,12 @@ class NotificationService {
   private void notifyParticipant(String participantUri,
                                  String notificationMessage) throws NotificationException {
     if (participantUri.startsWith("sip:")) {
-      InstantMessenger instantMessenger = new InstantMessenger();
-      instantMessenger.sendMessage(participantUri, notificationMessage);
+      InstantMessenger instantMessenger = new InstantMessenger(participantUri);
+      instantMessenger.sendMessage(notificationMessage);
     }
     else if (participantUri.startsWith("mailto:")) {
-      EmailSender emailSender = new EmailSender();
-      emailSender.sendEmail(participantUri, notificationMessage);
+      EmailSender emailSender = new EmailSender(participantUri);
+      emailSender.sendEmail(notificationMessage);
     }
   }
 
