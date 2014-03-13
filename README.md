@@ -6,8 +6,8 @@ When working with legacy code, subsequent covering with unit tests is not an eas
 Bringing existing code in better shape is essential when existing code must be covered with unit tests. In this presentation we focus on refactorings that are targeted for covering legacy code with unit tests, after it has been written without testing in mind.
 
 These are the sources for the presentation. See also:
-- Slides: http://www.slideshare.net/rfilipov/refactoring-for-tests-0lides
-- Handout: http://www.slideshare.net/rfilipov/refactoring-fortests-handout
+- Slides 2014: http://www.slideshare.net/rfilipov/refactoring-fortestability
+- Slides 2013: http://www.slideshare.net/rfilipov/refactoring-for-tests-0lides
 
 
 Importing in Intellij IDEA
